@@ -1,20 +1,34 @@
 .formulario{
-    background-image: url("../img/GettyImages-892092206-1.png");
+    background:url("../img/GettyImages-892092206-1.png");
     width: 100%;
     height: 650px;
     background-size: 100%  100%;
-    background-repeat: no-repeat;
+
+    background-repeat: no-repeat, no-repeat;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: relative;
 
+}
+
+.detalhe__imagem{
+
+   position:absolute;
+   left: 80px;
+   bottom: 180px;
+    
+}
+
+.detalhe__imagem img{
+    width: 175px;
 }
 
 .card__formulario__mensagem{
 
     width: 35%;
-    height: 350px;
+    height: 380px;
     background-color: #cf2e2e;
     color: #ffffff;
     
@@ -33,37 +47,33 @@
 .card__formulario__mensagem p{
 
     width: 50%;
-    padding-top: 30px;
+    padding-top: 45px;
 
 }
 
 .card__formulario{
 
     width: 35%;
-    height: 350px;
+    height: 380px;
+    padding-left: 40px;
     background-color: white;
-
-    
-    
-}
-
-.formulario__formulario{
-
-    height: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-  
 
+
+    
+    
 }
+
 
 .fomulario__formulario__inputs{
 
-    width: 80%;
+    width: 380px;
     margin-top: 20px;
     padding-bottom: 10px;
-    padding-left: 15px;
+   
+
     border: none;
     border-bottom: solid 1px rgb(230, 226, 226);
 }
@@ -78,7 +88,9 @@
 .formulario__formulario__buton{
 
  
-    padding: 13px 25px;
+    padding: 20px 25px;
+    margin-top: 45px;
+    max-width: 200px ; 
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
@@ -88,7 +100,7 @@
     border: none;
     cursor: pointer;
 
-    margin-top: 50px;
+   
 }
 
 
