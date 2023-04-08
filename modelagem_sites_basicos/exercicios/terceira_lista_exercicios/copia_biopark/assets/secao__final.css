@@ -1,0 +1,30 @@
+.secao__final{
+
+    display: flex;
+    flex-direction: row;
+    
+  
+}
+
+.secao__final__logo{
+
+    
+    background-color: #cf2e2e;
+    padding: 15px 130px 15px 130px;
+}
+
+.secao__final__texto{
+    width: 70%;
+    background-color: #1f303d;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+    padding-left: 10px;
+
+}
+
+.secao__final__texto a {
+    padding-right: 35px;
+  
+}

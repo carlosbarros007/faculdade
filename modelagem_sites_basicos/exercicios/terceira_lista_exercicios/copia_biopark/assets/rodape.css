@@ -1,0 +1,81 @@
+.rodape{
+
+    width: 100%;
+    background-color: #243746;
+    padding: 40px 130px 0px 130px;
+    color: white;
+    font-size: 13px;
+    padding-bottom: 40px;
+}
+
+
+
+
+.card__contato__duvidas{
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: space-between;
+}
+
+.card__contato__duvidas__lista{
+
+    background: url("../img/Vector-1.svg"), url("../img/icons8-whatsapp-100.png"), url("..//img/Vector-3.svg");
+    background-repeat: no-repeat;
+    background-size: 15px,  20px, 15px ;
+    background-position: 0 85px, 0 205px, 0 295px;
+}
+
+
+
+.card__contato__duvidas__lista li{
+    padding-left: 50px;
+    margin-bottom: 40px;
+    line-height: 2rem;
+}
+
+.card__contato__duvidas__lista li:first-child{
+    margin-bottom: 15px;
+    padding-left: 0;
+  
+}
+
+.card__contato__titulo h2{
+    font-size: 60px;
+}
+
+
+
+
+.config__lista{
+
+    list-style-type: none;
+}
+
+.card__contato__item3 p{
+    line-height: 1rem;
+}
+
+.contato__config__link{
+
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contato__config__link:hover{
+    color: rgb(197, 29, 29);
+}
+
+.card__contato__listas{
+
+    max-width: 180px;
+    line-height: 3rem;
+}
+
+.card__contato__listas li:first-child{
+
+    line-height: 5rem;
+
+}
+
