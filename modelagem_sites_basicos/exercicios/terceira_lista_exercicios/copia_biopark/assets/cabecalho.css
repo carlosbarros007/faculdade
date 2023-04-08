@@ -1,0 +1,28 @@
+.menu__navegação__cabecalho__lista{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    margin: 10px 30px 10px 95px;
+    
+}
+
+.menu__itens__cabecalho{
+
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.menu__itens__cabecalho--logo{
+
+    margin-right: 95px;
+}
+
+.menu__itens__cabecalho a{
+
+    text-decoration: none;
+    color: #000000;
+}

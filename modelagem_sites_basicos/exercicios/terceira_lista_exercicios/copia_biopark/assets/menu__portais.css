@@ -1,0 +1,39 @@
+
+
+.menu__portais__lista{
+
+    width: 100%;
+    height: 150px;
+    margin-top: 90px;
+    background-color:#cf2e2e;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.menu__portais__intens{
+
+    width: 300px;
+    padding: 30px;
+   
+
+
+}
+.menu__portais__intens a{
+ 
+    display: flex;
+    flex-direction: row;
+    align-items: self-start;
+    
+        
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.menu__portais__intens img{
+    padding-right: 20px;
+}

@@ -1,0 +1,56 @@
+
+.menu__cusos{
+    width: 100%;
+}
+.menu__cusos__nav{
+
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 70px 90px 0 90px;
+    list-style-type: none;
+    
+    
+}
+
+
+
+.menu__cursos__itens{
+    position: relative;
+}
+.menu__cursos__itens img{
+
+    border-radius: 10px;
+    width: 360px;
+    height: 265px;
+}
+
+.menu__cursos__itens--texto{
+
+    
+    text-transform: uppercase;
+    font-size: 33px;
+    font-weight: 700;
+    
+
+    position: absolute;
+    bottom: 20px;
+    left: 35px;
+   
+}
+
+.menu__cursos__itens--texto a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu__cursos__itens--seta{
+
+    display: block;
+    line-height: 30px;
+    font-size: 30px;
+    
+
+}
