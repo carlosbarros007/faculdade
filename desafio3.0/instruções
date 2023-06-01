@@ -1,0 +1,50 @@
+/*função basica para chamar o banco de dados*/
+
+
+//     char (*dadosProgramacao)[50] = bancoDados("areasTecnologia");
+
+//     for (size_t i = 0; i < 50; i++) {
+//         printf("%s\n", dadosProgramacao[i]);
+//     }
+    
+
+
+/*  
+
+     o codigo esta comentado caso teenha alguma duvida me chama e manda o treeco de codigo quee tem duvida 
+
+     O QUE FALTA FAZER
+
+        - terminar a logica para saber se um caractere foi emcontrado, adicionando um numero maximo de 
+          tentativas e printar tudo na tela.
+        
+        - aplicar essa logica para os outros niveis sendo que no nivel iniciante temos uma unica palavra, 
+          no intermediario duas, no dificil tres
+        
+        - criar sistema de chances a onde o usuario tenha um numero de chances limitado de acordo com a dificuldade
+
+        - criar sistema que quando faltar apenas tres caracteres o usuario tera que chutar a palavra ao melhor estilo 
+          roda roda jequiti
+
+        - juntar tudo com o menu inicial 
+
+        - criar um sitema de pontos
+
+        - criar sistema multi player 
+
+        - criar um layout bonnitinho para apresenntar todos os dados 
+
+           
+
+
+    obs: esse é um projetinho para brincar um pouco e aprender bastante, vai dar um nno gigantesco na cabeça porem vale apena
+         o tempo inveestido ja que com ele da para treinar todos os fundamentos que vimos ate agora e um pouco mais, caso 
+         precisem de ajuda é so chamar.
+
+         acredito que todos do grupo podem colaborar um pouco sendo que temos que testar e corrigir os bugs que vão apareecer 
+         e no final vamos poder mostra para a professora fabiane o quanto nos evoluimos em linguagem c.
+
+
+
+
+*/
