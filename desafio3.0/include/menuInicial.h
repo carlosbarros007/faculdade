@@ -6,17 +6,12 @@
 typedef struct {
     int tema;
     int dificuldade;
-} escolhaJogador;
+} inicialMenu;
 
 // recolhe os dados
-escolhaJogador menu() {
+inicialMenu menu() {
     int escolhaDificuldade;
     int escolhaTema;
-
-    printf("************************************\n");
-    printf("*           Seja bem-vindo          *\n");
-    printf("*            ao RODA RODA           *\n");
-    printf("************************************\n\n");
 
     printf("Escolha a dificuldade:\n");
     printf("1. Iniciante\n");
@@ -37,11 +32,9 @@ escolhaJogador menu() {
     printf("Digite o número correspondente à opção desejada: ");
     scanf("%d", &escolhaTema);
 
-    escolhaJogador jogador;
+    inicialMenu jogador;
     jogador.tema = escolhaTema;
     jogador.dificuldade = escolhaDificuldade;
-
-    nivelIniciante(jogador.tema);
 
     return jogador; // envia os dados de volta
 }

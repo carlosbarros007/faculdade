@@ -1,14 +1,13 @@
 
-
-
 #include <stdio.h>
-#include "iniciante.h"
+
+typedef struct {
+    int tema;
+    int dificuldade;
+} subMenu;
 
 
-
-
-
-int menu2(){
+subMenu menu2(){
 
     int selecaoMenu = 0;
     int temaSelecionado = 0;
@@ -16,7 +15,7 @@ int menu2(){
     
     printf("1. Jogar novamente\n");
     printf("2. mudar tema e dificuldade\n");
-    printf("3. esserra o jogo\n");
+    printf("3. encerra o jogo\n");
 
     printf("\nDigite o numero corespondente: ");
     scanf("%d", &selecaoMenu);
@@ -36,9 +35,6 @@ int menu2(){
         
             printf("Digite o número correspondente à opção desejada: ");
             scanf("%d", &temaSelecionado);
-
-            nivelIniciante(temaSelecionado);
-
         break;
     
     case 2:
@@ -61,31 +57,19 @@ int menu2(){
 
             printf("Digite o número correspondente à opção desejada: ");
             scanf("%d", &dificuldadeSelecionada);
-
-            switch (dificuldadeSelecionada)
-            {
-            case 1:
-                
-                 nivelIniciante(temaSelecionado);
-                break;
-            
-            case 2:
-                    // dificuldade intermediario não ta pronto função ira retorna para o menu
-                printf("***ops essa funcionalidade ainda não foi inplementada***");
-
-                
-            default:
-
-                printf("\nverifique as opções selecionadas e tente novamente, caso o erro percista chame o suporte!!!\n");
-             
-                break;
-            }
-            
-
-
+            break;
+    case 3: 
+        // encerra o jogo, retornando o valor 0 no tema e dificuldade 
+    break;    
     default:
+
+        printf("algo de errado não esta certo, contate o suporte");
         break;
     }
 
-    return 0;
+    subMenu jogador;
+    jogador.tema = temaSelecionado;
+    jogador.dificuldade = dificuldadeSelecionada;
+
+    return jogador; // envia os dados de volta
 }

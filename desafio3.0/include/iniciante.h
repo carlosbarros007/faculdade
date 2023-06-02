@@ -124,7 +124,7 @@
                     printf("*           %s                   *\n");
                     printf("************************************\n\n");
 
-                    menuSecundario2(); // chama o menu para seleção de uma nova partida
+                    break;
 
 
                 }else{
@@ -140,43 +140,7 @@
         }
             
             
-            // verifica se o caractere digitado foi encontrado 
-        //    for (int i = 0; palavraSelecionada[i] != '\0'; i++) {
-                
-        //         if (palavraSelecionada[i] == caractere) {
-        //             encontrado = 1;
-        //             pontos = pontos + 10;
-        //             exibePalavraSelecionada[i] = caractere;                   
-                
-        //         }                
-        //     }
-
-        //     // exibe uma mensagem caso caractere não seja encontrado
-        //     switch (encontrado)
-        //     {
-        //     case 0:
-        //         printf("não foi dessa vez, tente de novo!!!\n");
-        //         break;    
-                
-        //     case 1: 
-
-        //         printf("Parabens!!!\n");
-        //         encontrado = 0;
-        //         break;
-            
-        //     default:
-
-        //         printf("voce queboru o jogo, chame o suporte!!!");
-        //         break;
-        //     }
-            
-            
-        //     // exibe o caractere encontrado
-        //     for (int i = 0; exibePalavraSelecionada[i] != '\0'; i++) {
-                
-        //         printf("%c |", exibePalavraSelecionada[i]);
-
-        //     } 
+          
 
         
     return;
