@@ -20,6 +20,20 @@ inicialMenu menu() {
     printf("Digite o número correspondente à opção desejada: ");
     scanf("%d", &escolhaDificuldade);
 
+    // temporario remover depois da funcao intermadiario ser implementado
+
+   switch (escolhaDificuldade)
+   {
+   case 2 :
+    
+    printf("funcao em desenvolvimento, escolha a opcao 1");
+    menu();
+    break;
+   
+   default:
+    break;
+   }
+
     printf("\nEscolha o tema:\n");
     printf("1. Programação\n");
     printf("2. Tecnologia\n");

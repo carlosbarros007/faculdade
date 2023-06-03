@@ -56,9 +56,13 @@ int main(void) {
 
         if (dificuldadeSelecionada == 0 && temaSelecionnado == 0)
         {
-            printf("Ate a proxima!!!");
+            printf("\n**** Ate a proxima!!! ****\n");
             break;
+        }if (dificuldadeSelecionada == 0) // corrige bug dificuldade
+        {
+            dificuldadeSelecionada = retornoMenuPrincipal.dificuldade;
         }
+        
         
     }
 

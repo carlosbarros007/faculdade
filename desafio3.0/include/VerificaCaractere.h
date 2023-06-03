@@ -2,15 +2,18 @@
 
 typedef struct
 {
-    int indice;
+    int *indice;
     int encontrado;
+    
 } retornoCaractere;
 
 
     retornoCaractere verificaCaractere(char palavra[], char caractere){
 
     int encontrou = 0;
-    int indiceTenporario = -1;
+    int indiceTenporario[20];
+    int contadora = 0;
+    
     
     
 
@@ -18,16 +21,27 @@ typedef struct
              
                 if (palavra[i] == caractere) {
                     encontrou = 1;
-                    indiceTenporario = i;
+                    
+                    indiceTenporario[contadora] = i;
+
+                    contadora = contadora + 1;
+                  
                 }
                     
 
                    
     }
 
+        
+
+        
+
         retornoCaractere dados;
         dados.indice = indiceTenporario;
         dados.encontrado = encontrou;
+        
+        
+    
 
         return dados;
 

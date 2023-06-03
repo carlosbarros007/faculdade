@@ -87,24 +87,30 @@
             indice = dados.indice;
             caractereEncontrado = dados.encontrado;
 
+            for ( int i = 0; i < 10; i++)
+            {
+                printf("%d", indice);
+            }
+            
+
             if (caractereEncontrado == 0)
             {
                 printf("não foi dessa vez, tente denovo!!!");
 
             }else
             {
-                exibePalavraSelecionada[indice] = caractere;
+                //exibePalavraSelecionada[indice] = caractere;
                 contadorCaractere = contadorCaractere - 1;
 
-                printf("%d", indice);
+                //printf("%d", indice);
                 printf("\n***** parabens!!! *****\n");
 
 
-                for (int i = 0; exibePalavraSelecionada[i] != '\0'; i++) {
+               // for (int i = 0; exibePalavraSelecionada[i] != '\0'; i++) {
                 
-                    printf("%c |", exibePalavraSelecionada[i]);
+               //     printf("%c |", exibePalavraSelecionada[i]);
 
-                } 
+               // } 
 
 
             }
@@ -121,7 +127,7 @@
                    
                     printf("************************************\n");
                     printf("*           PARABENS!!!            *\n");
-                    printf("*           %s                   *\n");
+                    printf("*           %s                   *\n", palavraDigitada);
                     printf("************************************\n\n");
 
                     break;
@@ -130,6 +136,7 @@
                 }else{
 
                     printf("perdedor");
+                    break;
 
                 }
                 
