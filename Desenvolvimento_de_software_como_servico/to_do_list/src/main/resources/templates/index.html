@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    <!-- Formulário para criar uma nova tarefa -->
+    <h2>Nova Tarefa</h2>
+    <form id="formCriarTarefa" data-modo="criacao">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+        <br>
+        <label for="dataCriacao">Data de Criação:</label>
+        <input type="datetime-local" id="dataCriacao" name="dataCriacao" required>
+        <br>
+        <label for="concluida">Concluída:</label>
+        <input type="checkbox" id="concluida" name="concluida">
+        <br>
+        <button type="submit">Criar Tarefa</button>
+    </form>
+
+    <!-- Lista de tarefas existentes -->
+    <h2>Tarefas</h2>
+    <ul id="listaTarefas">
+        <!-- As tarefas serão exibidas aqui -->
+    </ul>
+
+    <script>
+        // Função para enviar os dados do formulário e criar uma nova tarefa
+        document.getElementById("formCriarTarefa").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
+
+            const modo = this.getAttribute("data-modo");
+
+            if (modo === "criacao") {
+                criarTarefa();
+            } else if (modo === "edicao") {
+                atualizarTarefa();
+            }
+        });
+
+        // Function to create a new task
+        function criarTarefa() {
+            // Coleta os dados do formulário
+            const descricao = document.getElementById("descricao").value;
+            const dataCriacao = document.getElementById("dataCriacao").value;
+            const concluida = document.getElementById("concluida").checked;
+
+            // Cria um objeto com os dados da nova tarefa
+            const novaTarefa = {
+                descricao: descricao,
+                dataCriacao: dataCriacao,
+                concluida: concluida
+            };
+
+            // Envia a requisição para criar a nova tarefa
+            fetch('/api/tarefas/criar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novaTarefa)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Tarefa criada:', data);
+                    // Limpa os campos do formulário após criar a tarefa
+                    document.getElementById("descricao").value = "";
+                    document.getElementById("dataCriacao").value = "";
+                    document.getElementById("concluida").checked = false;
+                    // Atualiza a lista de tarefas
+                    carregarTarefas();
+                })
+                .catch(error => {
+                    console.error('Erro ao criar tarefa:', error);
+                });
+        }
+
+        // Função para carregar a lista de tarefas existentes
+        function carregarTarefas() {
+            fetch('/api/tarefas/listar')
+                .then(response => response.json())
+                .then(tarefas => {
+                    const listaTarefas = document.getElementById("listaTarefas");
+                    listaTarefas.innerHTML = ""; // Limpa a lista antes de adicionar as novas tarefas
+                    tarefas.forEach(tarefa => {
+                        const itemLista = document.createElement("li");
+                        itemLista.textContent = `${tarefa.descricao} (Criada em: ${tarefa.dataCriacao}, Concluída: ${tarefa.concluida ? 'Sim' : 'Não'})`;
+
+                        // Botão para editar tarefa
+                        const botaoEditar = document.createElement("button");
+                        botaoEditar.textContent = "Editar";
+                        // Obtendo o ID da tarefa do atributo 'data-id' do botão de edição
+                        botaoEditar.dataset.id = tarefa.id;
+                        botaoEditar.onclick = function () {
+                            editarTarefa(tarefa.id);
+                        };
+                        itemLista.appendChild(botaoEditar);
+
+                        // Botão para excluir tarefa
+                        const botaoExcluir = document.createElement("button");
+                        botaoExcluir.textContent = "Excluir";
+                        botaoExcluir.onclick = function () {
+                            excluirTarefa(tarefa.id);
+                        };
+                        itemLista.appendChild(botaoExcluir);
+
+                        listaTarefas.appendChild(itemLista);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar tarefas:', error);
+                });
+        }
+
+        // Function to edit a task
+        function editarTarefa(idTarefa) {
+            fetch(`/api/tarefas/buscar/${idTarefa}`)
+                .then(response => response.json())
+                .then(tarefa => {
+                    document.getElementById("descricao").value = tarefa.descricao;
+                    document.getElementById("dataCriacao").value = tarefa.dataCriacao;
+                    document.getElementById("concluida").checked = tarefa.concluida;
+
+                    // Change form mode to editing
+                    document.getElementById("formCriarTarefa").setAttribute("data-modo", "edicao");
+                    // Store the ID of the task being edited
+                    document.getElementById("formCriarTarefa").dataset.idTarefa = idTarefa;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar tarefa para edição:', error);
+                });
+        }
+
+        // Function to update a task
+        function atualizarTarefa() {
+            const idTarefa = document.getElementById("formCriarTarefa").dataset.idTarefa;
+            const descricao = document.getElementById("descricao").value;
+            const dataCriacao = document.getElementById("dataCriacao").value;
+            const concluida = document.getElementById("concluida").checked;
+
+            const tarefaAtualizada = {
+                id: idTarefa,
+                descricao: descricao,
+                dataCriacao: dataCriacao,
+                concluida: concluida
+            };
+
+            fetch(`/api/tarefas/atualizar/${idTarefa}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(tarefaAtualizada)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Tarefa atualizada:', data);
+                    document.getElementById("descricao").value = "";
+                    document.getElementById("dataCriacao").value = "";
+                    document.getElementById("concluida").checked = false;
+                    // Reset form mode to creation after updating task
+                    document.getElementById("formCriarTarefa").setAttribute("data-modo", "criacao");
+                    carregarTarefas();
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar tarefa:', error);
+                });
+        }
+
+        // Function to delete a task
+        function excluirTarefa(idTarefa) {
+            // Confirm with the user before deleting the task
+            if (confirm("Tem certeza de que deseja excluir esta tarefa?")) {
+                // Send DELETE request to delete the task
+                fetch(`/api/tarefas/deletar/${idTarefa}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Tarefa excluída com sucesso');
+                            // Refresh task list after successful deletion
+                            carregarTarefas();
+                        } else {
+                            console.error('Falha ao excluir tarefa');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir tarefa:', error);
+                    });
+            }
+        }
+
+        // Chama a função para carregar as tarefas quando a página carregar
+        carregarTarefas();
+    </script>
+</body>
+
+</html>
